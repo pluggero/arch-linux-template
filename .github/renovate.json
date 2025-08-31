@@ -1,0 +1,19 @@
+{
+  "extends": [
+    "config:best-practices",
+    ":disableRateLimiting"
+  ],
+  "enabledManagers": [
+    "github-actions",
+    "pip_requirements",
+    "ansible-galaxy"
+  ],
+  "ansible-galaxy": {
+    "managerFilePatterns": [
+      "/^ansible/requirements\\.ya?ml$/"
+    ]
+  },
+  "assignees": [
+    "pluggero"
+  ]
+}
