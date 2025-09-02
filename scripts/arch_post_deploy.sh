@@ -14,8 +14,8 @@ fi
 
 assert_dependencies
 
-# clean_roles "$ROLES_DIR"
-# ansible-galaxy install -r "$ANSIBLE_DIR/requirements.yml" --roles-path "$ROLES_DIR" --force
+clean_roles "$ROLES_DIR"
+install_roles "$ROLES_DIR"
 
 HOST_PASSWORD=$(extract_host_password "$VAULT_FILE" "$VAULT_PASS_FILE")
 
