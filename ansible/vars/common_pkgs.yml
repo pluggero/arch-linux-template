@@ -1,0 +1,33 @@
+common_pkgs:
+  pacman:
+    install:
+      - 7zip
+      - bind # nslookup, dig
+      - brightnessctl
+      - btop
+      - chromium
+      - curl
+      - dosfstools # mkfs.vfat
+      - exfat-utils # mkfs.exfat
+      - fd
+      - file
+      - fzf
+      - imagemagick
+      - jq
+      - libreoffice-still
+      - nmap
+      - openssh
+      - openvpn
+      - pulsemixer
+      - ripgrep
+      - rsync
+      - thunar
+      - tree
+      - unzip
+      - wget
+      - zip
+      - zoxide
+      - gimp
+    remove: []
+    remove_regex: []
+    remove_modified_configs: false

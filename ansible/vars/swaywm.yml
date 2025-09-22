@@ -1,0 +1,54 @@
+# Variable overrides for Sway window manager configuration
+# Base variables are defined in the role defaults
+swaywm_keybindings_exec:
+  - key: $mod+Return
+    exec: "alacritty"
+  - key: $mod+Shift+Return
+    exec: "alacritty -e tmux"
+  - key: $mod+d
+    exec: "rofi -show drun"
+  - key: $mod+Shift+s
+    exec: "alacritty -e pulsemixer"
+  - key: $mod+Shift+p
+    exec: "alacritty -e btop"
+  - key: $mod+Shift+x
+    exec: "loginctl lock-session && swaylock -f"
+
+swaywm_workspaces:
+  - id: 1
+    key: "1"
+    name: " "
+  - id: 2
+    key: "2"
+    name: " "
+  - id: 3
+    key: "3"
+    name: " "
+  - id: 4
+    key: "4"
+    name: " "
+  - id: 5
+    key: "5"
+    name: "  "
+  - id: 6
+    key: "6"
+    name: " "
+  - id: 7
+    key: "7"
+    name: "1 "
+  - id: 8
+    key: "8"
+    name: "2 "
+  - id: 9
+    key: "9"
+    name: " "
+  - id: 10
+    key: "0"
+    name: " "
+
+swaywm_input_devices:
+  - identifier: "*"
+    xkb_layout: "us"
+    xkb_model: "pc105"
+    xkb_numlock: "enable"
+    xkb_options: "kpdl:dot"

@@ -1,0 +1,51 @@
+fish_login_shell_commands:
+  - exec /usr/bin/sway
+fish_env_variables:
+  - name: GPG_TTY # Fix GPG with fish shell
+    value: "(tty)"
+  - name: GTK1_RC_FILES
+    value: "{{ ansible_env.HOME }}/.gtkrc-2.0"
+  - name: LANG
+    value: "en_US.UTF-8"
+  - name: MOZ_ENABLE_WAYLAND
+    value: "1"
+  - name: QT_QPA_PLATFORM
+    value: "wayland"
+  - name: QT_SCREEN_SCALE_FACTORS
+    value: "1;1"
+  - name: SDL_VIDEODRIVER
+    value: "wayland"
+  - name: XCURSOR_SIZE
+    value: "16"
+  - name: XCURSOR_THEME
+    value: "Bibata-Modern-Ice"
+  - name: XDG_CURRENT_DESKTOP
+    value: "sway"
+  - name: XDG_SESSION_DESKTOP
+    value: "sway"
+  - name: _JAVA_AWT_WM_NONREPARENTING
+    value: "1"
+  - name: XDG_DATA_DIRS
+    value: "/usr/local/share:/usr/share:$XDG_DATA_DIRS"
+  - name: XCURSOR_PATH
+    value: "{{ ansible_env.HOME }}/.icons:/usr/share/icons:/usr/share/pixmaps:$XCURSOR_PATH"
+  - name: SSH_AUTH_SOCK
+    value: "$XDG_RUNTIME_DIR/ssh-agent"
+fish_abbreviations:
+  - name: l
+    value: "ls -lah"
+fish_keybindings:
+  - key: \co
+    function: "clear_and_repaint"
+fish_functions:
+  - name: "y"
+    description: "yazi with cwd-file."
+    command: |
+      set tmp (mktemp -t "yazi-cwd.XXXXXX")
+      yazi $argv --cwd-file="$tmp"
+      if set cwd (command cat -- "$tmp"); and [ -n "$cwd" ]; and [ "$cwd" != "$PWD" ]
+          builtin cd -- "$cwd"
+      end
+      rm -f -- "$tmp"
+fish_additional_config:
+  - "zoxide init fish | source"
