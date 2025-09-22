@@ -31,4 +31,4 @@ roles:
   - src: pluggero.nerdfonts
     version: 1.1.0
   - src: pluggero.swaywm
-    version: 1.0.0
+    version: 1.1.0
