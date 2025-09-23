@@ -19,6 +19,8 @@ common_pkgs:
       - openssh
       - openvpn
       - pulsemixer
+      - pipewire
+      - pipewire-pulse
       - ripgrep
       - rsync
       - thunar
