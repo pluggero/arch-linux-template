@@ -12,15 +12,20 @@ common_pkgs:
       - fd
       - file
       - fzf
+      - gimp
       - imagemagick
       - jq
       - libreoffice-still
       - nmap
       - openssh
       - openvpn
-      - pulsemixer
       - pipewire
+      - pipewire-alsa
+      - pipewire-audio
+      - pipewire-jack
       - pipewire-pulse
+      - pipewire-session-manager
+      - pulsemixer
       - ripgrep
       - rsync
       - thunar
@@ -29,7 +34,6 @@ common_pkgs:
       - wget
       - zip
       - zoxide
-      - gimp
     remove: []
     remove_regex: []
     remove_modified_configs: false
