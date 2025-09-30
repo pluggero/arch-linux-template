@@ -28,6 +28,7 @@ common_pkgs:
       - pulsemixer
       - ripgrep
       - rsync
+      - sof-firmware
       - thunar
       - tree
       - unzip
