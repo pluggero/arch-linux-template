@@ -17,6 +17,7 @@ common_pkgs:
       - jq
       - libreoffice-still
       - nmap
+      - noto-fonts-emoji
       - openssh
       - openvpn
       - pipewire
