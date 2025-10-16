@@ -12,6 +12,7 @@ common_pkgs:
       - fd
       - file
       - fzf
+      - ghostscript
       - gimp
       - imagemagick
       - jq
@@ -20,12 +21,14 @@ common_pkgs:
       - noto-fonts-emoji
       - openssh
       - openvpn
+      - pdftk
       - pipewire
       - pipewire-alsa
       - pipewire-audio
       - pipewire-jack
       - pipewire-pulse
       - pipewire-session-manager
+      - poppler
       - pulsemixer
       - ripgrep
       - rsync
