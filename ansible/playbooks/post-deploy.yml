@@ -13,6 +13,7 @@
     - ../vars/tmux.yml
     - ../vars/fish.yml
     - ../vars/swaywm.yml
+    - ../vars/git.yml
 
   roles:
     - pluggero.common_pkgs
