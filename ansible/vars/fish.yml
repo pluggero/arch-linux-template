@@ -2,7 +2,7 @@ fish_login_shell_commands:
   - exec /usr/bin/sway
 fish_env_variables:
   - name: GPG_TTY # Fix GPG with fish shell
-    value: "(tty)"
+    value: "$(tty)"
   - name: GTK1_RC_FILES
     value: "{{ ansible_env.HOME }}/.gtkrc-2.0"
   - name: LANG
