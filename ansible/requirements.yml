@@ -38,3 +38,5 @@ roles:
     version: 1.0.0
   - src: pluggero.git
     version: 1.0.0
+  - src: pluggero.gpg
+    version: 1.0.0
