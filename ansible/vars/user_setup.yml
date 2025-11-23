@@ -1,12 +1,16 @@
 user_setup_users:
   - name: "{{ ansible_user }}"
+    state: present
+    uid: 1000
     shell: "/bin/bash"
+    create_home: true
     groups: []
     groups_append: true
     password: "{{ user_setup_password | password_hash('sha512', user_setup_password_salt) }}"
+    sudo_access: true
+    sudo_nopasswd: false
     env_var_setup: false
     env_var_file: ".env_vars"
-    user_directory_setup: true
     user_directories:
       - name: ".local/share/archive"
         env_var: "XDG_ARCHIVE_DIR"
@@ -26,4 +30,6 @@ user_setup_users:
         env_var: "XDG_TOOLS_DIR"
       - name: "videos"
         env_var: "XDG_VIDEOS_DIR"
-    ssh_setup: false
+    ssh_directory: ".ssh"
+    ssh_authorized_keys_exclusive: true
+    ssh_authorized_keys: []
