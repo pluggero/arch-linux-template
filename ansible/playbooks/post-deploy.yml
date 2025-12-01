@@ -16,6 +16,7 @@
     - ../vars/git.yml
 
   roles:
+    - pluggero.upgrade
     - pluggero.common_pkgs
     - pluggero.nerdfonts
     - pluggero.bibata_cursor
