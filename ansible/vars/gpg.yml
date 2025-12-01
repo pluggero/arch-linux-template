@@ -1,2 +1,3 @@
 ---
 gpg_pinentry_bin: /usr/bin/pinentry-gnome3
+gpg_trust_model: "pgp" # https://github.com/jesseduffield/lazygit/issues/4977
