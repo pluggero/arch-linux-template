@@ -12,6 +12,11 @@ if [[ -n "${CONFIG_OVERRIDE:-}" && -f "$CONFIG_OVERRIDE" ]]; then
   source "$CONFIG_OVERRIDE"
 fi
 
+# Verify python dependencies
+assert_virtual_env
+assert_python_dependencies "$PYTHON_REQUIREMENTS"
+
+# Verify system dependencies
 assert_dependencies
 
 clean_roles "$ROLES_DIR"
