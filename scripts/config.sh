@@ -15,3 +15,6 @@ POST_DEPLOY_PLAYBOOK="$ANSIBLE_DIR/playbooks/post-deploy.yml"
 # === Requirements Files (multiple supported) ===
 # Define requirements files as an array
 REQUIREMENTS_FILES=("$ANSIBLE_DIR/requirements.yml")
+
+# === Python Dependencies ===
+PYTHON_REQUIREMENTS="requirements.txt"
