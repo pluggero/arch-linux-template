@@ -61,8 +61,20 @@ function assert_virtual_env() {
   fi
 }
 
+# Validates Python dependencies from requirements.txt
+# Uses importlib.metadata (Python 3.8+ standard library)
+# Supports only pinned versions (package==version format)
 function assert_python_dependencies() {
   local requirements_file="${1:-requirements.txt}"
+
+  # Verify Python version supports importlib.metadata (3.8+)
+  if ! python -c "import importlib.metadata" &> /dev/null; then
+    local python_version
+    python_version=$(python -c "import sys; print(f'{sys.version_info.major}.{sys.version_info.minor}')" 2>/dev/null || echo "unknown")
+    echo "ERROR: Python version $python_version does not support importlib.metadata (requires Python 3.8+)."
+    echo "       Please upgrade your Python environment."
+    exit 1
+  fi
 
   # Check if requirements.txt exists
   if [[ ! -f "$requirements_file" ]]; then
@@ -87,8 +99,8 @@ function assert_python_dependencies() {
       continue
     fi
 
-    # Check if package is installed
-    if ! python -c "import pkg_resources; pkg_resources.get_distribution('$package_name')" &> /dev/null; then
+    # Check if package is installed using importlib.metadata
+    if ! python -c "import importlib.metadata; importlib.metadata.version('$package_name')" &> /dev/null; then
       echo "ERROR: Required Python package '$package_name' is not installed."
       exit 1
     fi
@@ -96,7 +108,7 @@ function assert_python_dependencies() {
     # Check version if specified
     if [[ -n "$required_version" ]]; then
       local installed_version
-      installed_version=$(python -c "import pkg_resources; print(pkg_resources.get_distribution('$package_name').version)" 2>/dev/null)
+      installed_version=$(python -c "import importlib.metadata; print(importlib.metadata.version('$package_name'))" 2>/dev/null)
 
       if [[ "$installed_version" != "$required_version" ]]; then
         echo "ERROR: Python package '$package_name' version mismatch (required: $required_version, installed: $installed_version)."
