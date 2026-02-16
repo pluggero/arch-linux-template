@@ -1,3 +1,4 @@
+---
 user_setup_users:
   - name: "{{ ansible_user }}"
     state: present

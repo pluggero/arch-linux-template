@@ -1,3 +1,5 @@
+---
+fish_enable_vim_mode: true
 fish_login_shell_commands:
   - exec /usr/bin/sway
 fish_env_variables:
