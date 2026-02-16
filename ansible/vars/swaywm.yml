@@ -1,3 +1,4 @@
+---
 # Variable overrides for Sway window manager configuration
 # Base variables are defined in the role defaults
 swaywm_keybindings_exec:
