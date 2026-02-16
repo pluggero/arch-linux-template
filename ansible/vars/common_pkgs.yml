@@ -1,44 +1,44 @@
-common_pkgs:
-  pacman:
-    install:
-      - 7zip
-      - bind # nslookup, dig
-      - brightnessctl
-      - btop
-      - chromium
-      - curl
-      - dosfstools # mkfs.vfat
-      - exfat-utils # mkfs.exfat
-      - fd
-      - file
-      - fzf
-      - ghostscript
-      - gimp
-      - imagemagick
-      - jq
-      - libreoffice-still
-      - nmap
-      - noto-fonts-emoji
-      - openssh
-      - openvpn
-      - pdftk
-      - pipewire
-      - pipewire-alsa
-      - pipewire-audio
-      - pipewire-jack
-      - pipewire-pulse
-      - pipewire-session-manager
-      - poppler
-      - pulsemixer
-      - ripgrep
-      - rsync
-      - sof-firmware
-      - thunar
-      - tree
-      - unzip
-      - wget
-      - zip
-      - zoxide
-    remove: []
-    remove_regex: []
-    remove_modified_configs: false
+---
+common_pkgs_pacman:
+  install:
+    - 7zip
+    - bind # nslookup, dig
+    - brightnessctl
+    - btop
+    - chromium
+    - curl
+    - dosfstools # mkfs.vfat
+    - exfat-utils # mkfs.exfat
+    - fd
+    - file
+    - fzf
+    - ghostscript
+    - gimp
+    - imagemagick
+    - jq
+    - libreoffice-still
+    - nmap
+    - noto-fonts-emoji
+    - openssh
+    - openvpn
+    - pdftk
+    - pipewire
+    - pipewire-alsa
+    - pipewire-audio
+    - pipewire-jack
+    - pipewire-pulse
+    - pipewire-session-manager
+    - poppler
+    - pulsemixer
+    - ripgrep
+    - rsync
+    - sof-firmware
+    - thunar
+    - tree
+    - unzip
+    - wget
+    - zip
+    - zoxide
+  remove: []
+  remove_regex: []
+  remove_modified_configs: false
