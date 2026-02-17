@@ -1,19 +1,15 @@
 {
   "extends": [
     "config:best-practices",
-    ":disableRateLimiting"
+    ":disableRateLimiting",
+    "github>pluggero/renovate-config-ansible-galaxy"
   ],
-  "automerge": false,
   "automergeType": "pr",
   "packageRules": [
     {
       "matchManagers": ["github-actions", "pip_requirements"],
       "automerge": true,
       "automergeType": "pr"
-    },
-    {
-      "matchManagers": ["ansible-galaxy"],
-      "automerge": false
     }
   ],
   "enabledManagers": [
