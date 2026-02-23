@@ -2,3 +2,5 @@
 golang_tools:
   - name: "github.com/pluggero/content-tree"
     version: "1f51c261b30b7c8cf1b91f9fcae44f813fa21284"
+  - name: "github.com/mikefarah/yq/v4"
+    version: "v4.52.4"
