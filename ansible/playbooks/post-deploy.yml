@@ -5,15 +5,18 @@
 
   vars_files:
     - ../inventory/group_vars/all/vault.yml
-    - ../vars/bibata_cursor.yml
     - ../vars/alacritty.yml
+    - ../vars/bibata_cursor.yml
     - ../vars/common_pkgs.yml
     - ../vars/firefox.yml
-    - ../vars/golang.yml
-    - ../vars/tmux.yml
     - ../vars/fish.yml
-    - ../vars/swaywm.yml
     - ../vars/git.yml
+    - ../vars/golang.yml
+    - ../vars/gpg.yml
+    - ../vars/openssh.yml
+    - ../vars/user_setup.yml
+    - ../vars/swaywm.yml
+    - ../vars/tmux.yml
 
   roles:
     - pluggero.upgrade
