@@ -1,0 +1,7 @@
+---
+openssh_service_enabled: false
+
+# OpenSSH Client System-wide Configuration
+openssh_client_system:
+  send_env: ["LANG", "LC_*"]
+  forward_agent: false

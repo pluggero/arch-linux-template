@@ -17,23 +17,24 @@
 
   roles:
     - pluggero.upgrade
-    - pluggero.common_pkgs
-    - pluggero.nerdfonts
-    - pluggero.bibata_cursor
     - pluggero.alacritty
-    - pluggero.fish
-    - pluggero.tmux
-    - pluggero.docker
-    - pluggero.neovim
-    - pluggero.firefox
-    - pluggero.rofi
-    - pluggero.golang
-    - pluggero.rustup
-    - pluggero.user_setup
-    - pluggero.yazi
+    - pluggero.bibata_cursor
     - pluggero.borgbackup
-    - pluggero.swaywm
-    - pluggero.satty
-    - pluggero.wireshark
+    - pluggero.common_pkgs
+    - pluggero.docker
+    - pluggero.firefox
+    - pluggero.fish
     - pluggero.git
+    - pluggero.golang
     - pluggero.gpg
+    - pluggero.neovim
+    - pluggero.nerdfonts
+    - pluggero.openssh
+    - pluggero.user_setup
+    - pluggero.rofi
+    - pluggero.rustup
+    - pluggero.satty
+    - pluggero.swaywm
+    - pluggero.tmux
+    - pluggero.wireshark
+    - pluggero.yazi
