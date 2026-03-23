@@ -49,5 +49,18 @@ fish_functions:
           builtin cd -- "$cwd"
       end
       rm -f -- "$tmp"
+  - name: "btc"
+    description: "Connect to known devices via bluetooth"
+    command: |
+      set -l selection (bluetoothctl devices | fzf --header "Select device to connect"); or return 1
+      set -l device_mac (echo $selection | cut -d ' ' -f 2)
+
+      if test -z "$device_mac"
+          echo "Could not parse device MAC"
+          return 1
+      end
+
+      bluetoothctl connect $device_mac
+
 fish_additional_config:
   - "zoxide init fish | source"
