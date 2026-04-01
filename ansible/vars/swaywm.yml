@@ -14,6 +14,8 @@ swaywm_keybindings_exec:
     exec: "alacritty -e btop"
   - key: $mod+Shift+x
     exec: "loginctl lock-session && swaylock -f"
+  - key: $mod+Ctrl+Shift+v
+    exec: 'sh -c ''sleep 2; echo "type $(wl-paste)" | DOTOOL_XKB_LAYOUT=us DOTOOL_XKB_VARIANT=intl dotool'''
 
 swaywm_workspaces:
   - id: 1
