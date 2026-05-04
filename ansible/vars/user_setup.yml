@@ -7,7 +7,8 @@ user_setup_users:
     create_home: true
     groups: []
     groups_append: true
-    password: "{{ user_setup_password | password_hash('sha512', user_setup_password_salt) }}"
+    password: "{{ user_setup_password }}"
+    password_salt: "{{ user_setup_password_salt }}"
     sudo_access: true
     sudo_nopasswd: false
     env_var_setup: false
