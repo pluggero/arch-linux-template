@@ -41,6 +41,6 @@ roles:
   - src: pluggero.gpg
     version: 1.1.0
   - src: pluggero.upgrade
-    version: 1.2.0
+    version: 1.3.0
   - src: pluggero.openssh
     version: 1.3.0
