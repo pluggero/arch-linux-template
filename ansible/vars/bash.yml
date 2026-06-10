@@ -1,5 +1,8 @@
 ---
-bash_aliases: []
+bash_aliases:
   - name: l
     command: "ls -lah"
 
+bash_login_shell_commands:
+  - "# Drops instantly into a fish login shell"
+  - "exec fish --login"
