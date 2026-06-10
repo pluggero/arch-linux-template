@@ -3,12 +3,15 @@ common_pkgs_pacman:
   install:
     - 7zip
     - bind # nslookup, dig
+    - bluez
+    - bluez-utils
     - brightnessctl
     - btop
     - chromium
     - curl
     - dosfstools # mkfs.vfat
     - exfat-utils # mkfs.exfat
+    - fastfetch
     - fd
     - file
     - fzf
@@ -36,6 +39,7 @@ common_pkgs_pacman:
     - thunar
     - tree
     - unzip
+    - usbmuxd
     - wget
     - zip
     - zoxide
