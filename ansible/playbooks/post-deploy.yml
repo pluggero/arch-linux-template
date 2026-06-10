@@ -6,6 +6,7 @@
   vars_files:
     - ../inventory/group_vars/all/vault.yml
     - ../vars/alacritty.yml
+    - ../vars/bash.yml
     - ../vars/bibata_cursor.yml
     - ../vars/common_pkgs.yml
     - ../vars/firefox.yml
@@ -21,6 +22,7 @@
   roles:
     - pluggero.upgrade
     - pluggero.alacritty
+    - pluggero.bash
     - pluggero.bibata_cursor
     - pluggero.borgbackup
     - pluggero.common_pkgs

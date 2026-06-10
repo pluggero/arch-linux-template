@@ -1,0 +1,5 @@
+---
+bash_aliases: []
+  - name: l
+    command: "ls -lah"
+
