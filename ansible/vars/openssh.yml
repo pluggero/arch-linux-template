@@ -11,3 +11,7 @@ openssh_client_system:
   compression: false
   update_host_keys: true
   send_env: ["LANG", "LC_*"]
+
+openssh_agent_users:
+  - user: "{{ ansible_user }}"
+    enabled: true
