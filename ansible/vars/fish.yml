@@ -11,8 +11,6 @@ fish_env_variables:
     value: "en_US.UTF-8"
   - name: MOZ_ENABLE_WAYLAND
     value: "1"
-  - name: QT_QPA_PLATFORM
-    value: "wayland"
   - name: QT_SCREEN_SCALE_FACTORS
     value: "1;1"
   - name: SDL_VIDEODRIVER
