@@ -32,7 +32,7 @@ fish_env_variables:
   - name: XCURSOR_PATH
     value: "{{ ansible_env.HOME }}/.icons:/usr/share/icons:/usr/share/pixmaps:$XCURSOR_PATH"
   - name: SSH_AUTH_SOCK
-    value: "$XDG_RUNTIME_DIR/ssh-agent"
+    value: "$XDG_RUNTIME_DIR/ssh-agent.socket"
 fish_abbreviations:
   - name: l
     value: "ls -lah"
