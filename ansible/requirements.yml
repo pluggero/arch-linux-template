@@ -45,4 +45,4 @@ roles:
   - src: pluggero.openssh
     version: 1.4.0
   - src: pluggero.bash
-    version: 1.0.0
+    version: 1.0.1
