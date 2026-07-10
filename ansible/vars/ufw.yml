@@ -1,0 +1,13 @@
+---
+ufw_rules:
+  - rule: deny
+    direction: out
+    interface: tun0
+    to_port: "1900"
+    proto: udp
+    comment: "Block SSDP/UPnP multicast out tun0"
+  - rule: deny
+    direction: out
+    interface: tun0
+    to_ip: "224.0.0.0/4"
+    comment: "Block all multicast out tun0"

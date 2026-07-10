@@ -46,3 +46,7 @@ roles:
     version: 1.4.0
   - src: pluggero.bash
     version: 1.0.1
+  - src: pluggero.ufw
+    version: 1.2.0
+  - src: pluggero.usbguard
+    version: 1.0.0
