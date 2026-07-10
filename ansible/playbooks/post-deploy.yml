@@ -15,6 +15,8 @@
     - ../vars/golang.yml
     - ../vars/gpg.yml
     - ../vars/openssh.yml
+    - ../vars/ufw.yml
+    - ../vars/usbguard.yml
     - ../vars/user_setup.yml
     - ../vars/swaywm.yml
     - ../vars/tmux.yml
@@ -35,6 +37,8 @@
     - pluggero.neovim
     - pluggero.nerdfonts
     - pluggero.openssh
+    - pluggero.ufw
+    - pluggero.usbguard
     - pluggero.user_setup
     - pluggero.rofi
     - pluggero.rustup
