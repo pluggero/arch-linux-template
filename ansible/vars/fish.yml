@@ -59,6 +59,59 @@ fish_functions:
       end
 
       bluetoothctl connect $device_mac
+  - name: "allow_device"
+    description: "Allows a usb device within USBGuard (temporary)"
+    command: |
+      set -l permanent false
+
+      switch "$argv[1]"
+          case --permanent -p
+              set permanent true
+              set -e argv[1]
+          case ''
+              # no flag: default is temporary
+          case '*'
+              echo "Usage: allow-usb [--permanent|-p]"
+              return 0
+      end
+
+      set -l rule_path '/etc/usbguard/rules.d/99-manual-rules.conf'
+
+      set -l fzf_title 'TEMPORARY: Select USB device to allow'
+      if test "$permanent" = true
+          set fzf_title 'PERMANENT: Select USB device to allow'
+      end
+
+      set -l selection (usbguard list-devices --blocked | fzf --header $fzf_title); or return 1
+      set -l usb_id (echo $selection | grep -oP '(?<=id )[0-9a-zA-Z]+:[0-9a-zA-Z]+(?= )')
+      set -l device_name (echo $selection | grep -oP '(?<=name ").*?(?=")')
+
+      if test -z "$usb_id"
+          echo "Could not parse USB device ID."
+          return 1
+      end
+
+      if test "$permanent" = true
+          echo "Permanently allowing $device_name"
+          echo "Appending matching rule to $rule_path"
+
+          usbguard generate-policy --no-ports-sn \
+              | grep "id $usb_id" \
+              | sed -E 's/\s+parent-hash\s+"[^"]+"//g; s/\s+with-connect-type\s+"[^"]+"//g' \
+              | sudo tee -a $rule_path >/dev/null; or return 1
+
+          echo "Setting permissions on $rule_path"
+          sudo chmod 600 $rule_path; or return 1
+
+          echo "Restarting USBGuard"
+          sudo systemctl restart usbguard; or return 1
+
+          echo "Done"
+          return
+      end
+
+      echo "Temporarily allowing $device_name"
+      sudo usbguard allow-device "$usb_id"; or return 1
 
 fish_additional_config:
   - "zoxide init fish | source"
