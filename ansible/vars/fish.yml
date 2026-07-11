@@ -97,7 +97,7 @@ fish_functions:
 
           usbguard generate-policy --no-ports-sn \
               | grep "id $usb_id" \
-              | sed -E 's/\s+parent-hash\s+"[^"]+"//g; s/\s+with-connect-type\s+"[^"]+"//g' \
+              | sed -E 's/\s+parent-hash\s+"[^"]*"//g; s/\s+with-connect-type\s+"[^"]*"//g' \
               | sudo tee -a $rule_path >/dev/null; or return 1
 
           echo "Setting permissions on $rule_path"
