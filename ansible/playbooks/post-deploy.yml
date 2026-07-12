@@ -21,6 +21,7 @@
     - ../vars/user_setup.yml
     - ../vars/swaywm.yml
     - ../vars/tmux.yml
+    - ../vars/virtualbox.yml
 
   roles:
     - pluggero.upgrade
@@ -47,5 +48,6 @@
     - pluggero.satty
     - pluggero.swaywm
     - pluggero.tmux
+    - pluggero.virtualbox
     - pluggero.wireshark
     - pluggero.yazi
