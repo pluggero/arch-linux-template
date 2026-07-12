@@ -1,0 +1,5 @@
+---
+virtualbox_default_machine_folder: "/home/{{ ansible_user }}/vbox-vms"
+virtualbox_gui_expert_mode: true
+virtualbox_users:
+  - "{{ ansible_user }}"
