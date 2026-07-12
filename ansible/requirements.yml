@@ -50,3 +50,5 @@ roles:
     version: 1.2.0
   - src: pluggero.usbguard
     version: 1.1.0
+  - src: pluggero.pam
+    version: 1.0.0

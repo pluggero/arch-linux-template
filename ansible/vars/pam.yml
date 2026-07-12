@@ -1,0 +1,19 @@
+---
+pam_install_method: "package"
+
+# Password quality (pam_pwquality)
+pam_pwquality_retry: 3
+pam_pwquality_minlen: 15
+pam_pwquality_difok: 5
+pam_pwquality_minclass: 4
+
+# Password history (pam_pwhistory)
+pam_pwhistory_remember: 400
+
+# Account lockout (pam_faillock)
+pam_faillock_deny: 5
+pam_faillock_unlock_time: 1800
+pam_faillock_even_deny_root: true
+
+# Password expiration
+pam_pass_max_days: 365
