@@ -9,6 +9,7 @@ common_pkgs_pacman:
     - btop
     - chromium
     - curl
+    - dmidecode
     - dosfstools # mkfs.vfat
     - exfat-utils # mkfs.exfat
     - fastfetch
@@ -37,9 +38,11 @@ common_pkgs_pacman:
     - rsync
     - sof-firmware
     - thunar
+    - tigervnc
     - tree
     - unzip
     - usbmuxd
+    - wdisplays
     - wget
     - zip
     - zoxide
