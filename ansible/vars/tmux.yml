@@ -22,8 +22,7 @@ tmux_key_bindings:
       send-keys -X begin-selection \;
       send-keys -X search-forward "$USER@$hostname" \;
       send-keys -X cursor-up \;
-      send-keys -X end-of-line \;
-      send-keys -X cursor-left
+      send-keys -X end-of-line
 
 tmux_plugins:
   - name: "vim-tmux-navigator"
