@@ -8,6 +8,7 @@
     - ../vars/alacritty.yml
     - ../vars/bash.yml
     - ../vars/bibata_cursor.yml
+    - ../vars/borgbackup.yml
     - ../vars/common_pkgs.yml
     - ../vars/firefox.yml
     - ../vars/fish.yml
