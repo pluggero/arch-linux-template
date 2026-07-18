@@ -44,6 +44,7 @@ common_pkgs_pacman:
     - usbmuxd
     - wdisplays
     - wget
+    - zbar
     - zip
     - zoxide
   remove: []
