@@ -10,6 +10,7 @@ common_pkgs_pacman:
     - chromium
     - curl
     - dmidecode
+    - dnsmasq
     - dosfstools # mkfs.vfat
     - exfat-utils # mkfs.exfat
     - fastfetch
@@ -34,6 +35,7 @@ common_pkgs_pacman:
     - pipewire-session-manager
     - poppler
     - pulsemixer
+    - radvd
     - ripgrep
     - rsync
     - sof-firmware
