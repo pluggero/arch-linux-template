@@ -10,7 +10,7 @@ tmux_key_bindings:
     flags: ""
     command: "send-keys 'C-l'"
   # Helper to copy the last command quickly
-  # This combination only works with the nim prompt of fish shell
+  # This combination only works with my custom fish prompt
   - key: "C-y"
     flags: "-n"
     command: >-
