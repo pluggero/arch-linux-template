@@ -38,6 +38,10 @@ fish_keybindings:
   - key: \cl
     function: "clear_and_repaint"
 fish_functions:
+  - name: "private"
+    description: "Start a nested fish in private mode; exit to return."
+    command: |
+      fish --private $argv
   - name: "y"
     description: "yazi with cwd-file."
     command: |
@@ -327,6 +331,14 @@ fish_prompt_custom: |
       end
       set mode $mode(set_color normal)
       _nim_prompt_wrapper $retc '' $mode
+  end
+
+  # Private mode: history is not being written to disk. Only rendered when
+  # active — a normal session gets no segment at all.
+  if test -n "$fish_private_mode"
+      set -l pmode (set_color --bold brmagenta)P
+      set pmode $pmode(set_color normal)
+      _nim_prompt_wrapper $retc '' $pmode
   end
 
 
