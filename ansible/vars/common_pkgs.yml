@@ -19,6 +19,7 @@ common_pkgs_pacman:
     - fzf
     - ghostscript
     - gimp
+    - github-cli
     - imagemagick
     - jq
     - libreoffice-still
