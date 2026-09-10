@@ -12,6 +12,7 @@ common_pkgs_pacman:
     - dmidecode
     - dnsmasq
     - dosfstools # mkfs.vfat
+    - dotnet-sdk
     - exfat-utils # mkfs.exfat
     - fastfetch
     - fd
@@ -25,6 +26,8 @@ common_pkgs_pacman:
     - libreoffice-still
     - nmap
     - noto-fonts-emoji
+    - ntfs-3g # ntfs mount
+    - ntfsprogs # mkfs.ntfs
     - openssh
     - openvpn
     - pdftk
@@ -45,6 +48,8 @@ common_pkgs_pacman:
     - tree
     - unzip
     - usbmuxd
+    - usbutils
+    - vim
     - wdisplays
     - wget
     - zbar
