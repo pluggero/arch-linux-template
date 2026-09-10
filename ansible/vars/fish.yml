@@ -31,6 +31,8 @@ fish_env_variables:
     value: "{{ ansible_env.HOME }}/.icons:/usr/share/icons:/usr/share/pixmaps:$XCURSOR_PATH"
   - name: SSH_AUTH_SOCK
     value: "$XDG_RUNTIME_DIR/ssh-agent.socket"
+  - name: EDITOR
+    value: "nvim"
 fish_abbreviations:
   - name: l
     value: "ls -lah"
@@ -197,8 +199,9 @@ fish_prompt_custom: |
   # [nim@Hattori:~/w/dashboard]-[2026-07-18 02:07:09pm UTC+2]-[I]-[V:django20]-[G:main]
   # $
 
+  set -l last_status $status
   set -l retc red
-  test $status = 0; and set retc green
+  test $last_status = 0; and set retc green
 
   # Duration of last command, own line, omitted entirely when there's
   # nothing to report (no extra blank line). A row can be redrawn several
@@ -246,7 +249,7 @@ fish_prompt_custom: |
           end
       end
       set_color -o red
-      echo "[took "$dur_label"]"
+      echo "[took "$dur_label" | exit "$last_status"]"
       set_color normal
   end
 
@@ -340,7 +343,6 @@ fish_prompt_custom: |
       set pmode $pmode(set_color normal)
       _nim_prompt_wrapper $retc '' $pmode
   end
-
 
   # Virtual Environment
   set -q VIRTUAL_ENV_DISABLE_PROMPT
