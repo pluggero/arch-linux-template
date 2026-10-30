@@ -51,6 +51,238 @@ swaywm_workspaces:
     key: "0"
     name: " "
 
+swaywm_waybar_modules_left:
+  - "sway/workspaces"
+swaywm_waybar_modules_center: []
+swaywm_waybar_modules_right:
+  - "network"
+  - "pulseaudio"
+  - "idle_inhibitor"
+  - "custom/keyboard"
+  - "cpu"
+  - "memory"
+  - "disk"
+  - "temperature"
+  - "battery"
+  - "clock#date"
+  - "custom/time"
+  - "tray"
+
+swaywm_waybar_modules:
+  battery:
+    bat: "BAT0"
+    format: "{icon} {capacity}% {time}"
+    format-charging: "{icon} {capacity}%({time} {power:.0f}W)"
+    format-full: "100%"
+    format-icons:
+      - "󰁺"
+      - "󰁻"
+      - "󰁼"
+      - "󰁽"
+      - "󰁾"
+      - "󰁿"
+      - "󰂀"
+      - "󰂁"
+      - "󰂂"
+      - "󰁹"
+    format-time: "{H}:{m}"
+    full-at: 97
+    interval: 5
+    states:
+      critical: 15
+      warning: 30
+    tooltip: false
+  "clock#date":
+    locale: "en_US.UTF-8"
+    actions:
+      on-scroll-down: "shift_up"
+      on-scroll-up: "shift_down"
+    calendar:
+      format:
+        days: "<span color='#ecc6d9'><b>{}</b></span>"
+        months: "<span color='#ffead3'><b>{}</b></span>"
+        today: "<span color='#ff6699'><b><u>{}</u></b></span>"
+        weekdays: "<span color='#ffcc66'><b>{}</b></span>"
+        weeks: "<span color='#99ffdd'><b>W{:%V}</b></span>"
+      iso8601: true
+      mode: "month"
+      mode-mon-col: "3"
+      on-click-right: "mode"
+      on-scroll: 1
+      weeks-pos: "left"
+    format: "{:%Y-%m-%d-%a}"
+    interval: 10
+    tooltip-format: "<tt><small>{calendar}</small></tt>"
+  cpu:
+    format: " {usage:2}%"
+    interval: 2
+    tooltip: false
+  "custom/keyboard":
+    exec: "{{ swaywm_waybar_scripts_dir }}/toggle_keyboard.py --state"
+    format: "{} "
+    interval: 1
+    on-click: "{{ swaywm_waybar_scripts_dir }}/toggle_keyboard.py"
+    return-type: "json"
+    tooltip: false
+  "custom/time":
+    exec: "date '+%I:%M:%S%p' | tr 'A-Z' 'a-z'"
+    format: "{}"
+    interval: 1
+    tooltip: false
+  disk:
+    format: " {specific_used:0.0f}|{specific_total:0.0f}({percentage_used}%)"
+    interval: 10
+    path: "/"
+    tooltip: false
+    unit: "GB"
+  idle_inhibitor:
+    format: "{icon}"
+    format-icons:
+      activated: "<span color='#ff3300'><u> </u></span>"
+      deactivated: " "
+    tooltip: false
+  memory:
+    format: " {used:0.0f}|{total:0.0f}"
+    interval: 2
+    tooltip: false
+  network:
+    format: "{ifname}"
+    format-disconnected: "not connected"
+    format-ethernet: "󰈀 ({ifname}): {ipaddr}"
+    format-wifi: "󰖩 {essid} {ipaddr}/{cidr} ({signalStrength}%)"
+    interval: 3
+    tooltip: false
+  pulseaudio:
+    format: "{icon} {volume}%"
+    format-bluetooth: "{icon}  {volume}%"
+    format-bluetooth-muted: "<span font='11'>󰝟</span> {icon} {volume}%"
+    format-icons:
+      car: ""
+      default:
+        - " "
+        - " "
+        - "  "
+      hands-free: "󰋎"
+      headphone: ""
+      headset: "󰋎"
+      phone: ""
+      portable: ""
+    format-muted: "<span font='11'>󰝟</span> {volume}%"
+    format-source: "{volume}% "
+    format-source-muted: ""
+    on-click: "alacritty -e pulsemixer"
+    scroll-step: 5
+  "sway/workspaces":
+     all-outputs: false
+     format: "{icon}"
+     format-icons:
+       "1": "{{ (swaywm_workspaces | selectattr('id', 'equalto', 1) | first).name }}"
+       "2": "{{ (swaywm_workspaces | selectattr('id', 'equalto', 2) | first).name }}"
+       "3": "{{ (swaywm_workspaces | selectattr('id', 'equalto', 3) | first).name }}"
+       "4": "{{ (swaywm_workspaces | selectattr('id', 'equalto', 4) | first).name }}"
+       "5": "{{ (swaywm_workspaces | selectattr('id', 'equalto', 5) | first).name }}"
+       "6": "{{ (swaywm_workspaces | selectattr('id', 'equalto', 6) | first).name }}"
+       "7": "{{ (swaywm_workspaces | selectattr('id', 'equalto', 7) | first).name }}"
+       "8": "{{ (swaywm_workspaces | selectattr('id', 'equalto', 8) | first).name }}"
+       "9": "{{ (swaywm_workspaces | selectattr('id', 'equalto', 9) | first).name }}"
+       "10": "{{ (swaywm_workspaces | selectattr('id', 'equalto', 10) | first).name }}"
+  temperature:
+    critical-threshold: 60
+    format: "{icon} {temperatureC}°C"
+    format-icons:
+      - ""
+      - ""
+      - ""
+      - ""
+      - ""
+    interval: 2
+    tooltip: false
+  tray:
+    spacing: 10
+
+swaywm_waybar_style:
+  "*":
+    border: "none"
+    font-family: "{{ swaywm_font.family }}"
+    font-weight: "700"
+    font-size: "{{ swaywm_font.size + 3 }}px"
+    min-height: "0"
+  "window#waybar":
+    background: "none"
+    margin: "0px"
+    padding: "0px"
+  "tooltip":
+    background: "{{ swaywm_waybar_colors.secondary_bg }}"
+    border-radius: "4px"
+    border-width: "2px"
+    border-style: "solid"
+    border-color: "{{ swaywm_waybar_colors.text_color }}"
+    color: "{{ swaywm_waybar_colors.text_color }}"
+  "#workspaces button":
+    border: "none"
+    transition-duration: "0.3s"
+    background: "none"
+    box-shadow: "inherit"
+    text-shadow: "inherit"
+    color: "{{ swaywm_waybar_colors.workspace_inactive }}"
+    padding: "3px"
+  "#workspaces button.active":
+    color: "{{ swaywm_waybar_colors.text_color }}"
+  "#workspaces button.persistent":
+    color: "{{ swaywm_waybar_colors.workspace_inactive }}"
+  "#workspaces button.empty":
+    color: "{{ swaywm_waybar_colors.workspace_empty }}"
+  "#workspaces button:hover":
+    color: "{{ swaywm_waybar_colors.workspace_hover }}"
+  "#workspaces button.special":
+    color: "{{ swaywm_waybar_colors.workspace_special }}"
+  "#workspaces button.visible":
+    color: "{{ swaywm_waybar_colors.text_color }}"
+  "#workspaces button.urgent":
+    color: "{{ swaywm_waybar_colors.workspace_urgent }}"
+  "#workspaces": &waybar_module_style
+    background: "{{ swaywm_waybar_colors.secondary_bg }}"
+    border-radius: "4px"
+    border-width: "2px"
+    border-style: "solid"
+    border-color: "{{ swaywm_waybar_colors.module_border }}"
+    margin-right: "4px"
+    margin-left: "4px"
+    color: "{{ swaywm_waybar_colors.text_color }}"
+    padding: "0px 5px"
+  "#network": *waybar_module_style
+  "#pulseaudio": *waybar_module_style
+  "#idle_inhibitor":
+    background: "{{ swaywm_waybar_colors.secondary_bg }}"
+    border-radius: "4px 0px 0px 4px"
+    border-width: "2px"
+    border-style: "solid"
+    border-color: "{{ swaywm_waybar_colors.module_border }}"
+    border-right: "0px"
+    margin-right: "0px"
+    margin-left: "4px"
+    color: "{{ swaywm_waybar_colors.text_color }}"
+    padding: "0px 5px"
+  "#custom-keyboard":
+    background: "{{ swaywm_waybar_colors.secondary_bg }}"
+    border-radius: "0px 4px 4px 0px"
+    border-width: "2px"
+    border-style: "solid"
+    border-color: "{{ swaywm_waybar_colors.module_border }}"
+    border-left: "0px"
+    margin-right: "4px"
+    margin-left: "0px"
+    color: "{{ swaywm_waybar_colors.text_color }}"
+    padding: "0px 5px"
+  "#cpu": *waybar_module_style
+  "#memory": *waybar_module_style
+  "#disk": *waybar_module_style
+  "#temperature": *waybar_module_style
+  "#battery": *waybar_module_style
+  "#clock": *waybar_module_style
+  "#custom-time": *waybar_module_style
+  "#tray > .active": *waybar_module_style
+
 swaywm_input_devices:
   - identifier: "*"
     xkb_layout: "us"
