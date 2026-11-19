@@ -15,5 +15,9 @@ pam_faillock_deny: 5
 pam_faillock_unlock_time: 1800
 pam_faillock_even_deny_root: true
 
-# Password expiration
+# Password aging
+pam_password_aging_enabled: true
 pam_pass_max_days: 365
+pam_pass_warn_age: 14
+pam_password_aging_exclude_users:
+  - root
