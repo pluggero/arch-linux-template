@@ -98,6 +98,12 @@ firefox_profile_user_prefs:
     value: "false"
   - name: "toolkit.telemetry.updatePing.enabled"
     value: "false"
+  - name: "browser.download.folderList"
+    value: "2"
+  - name: "browser.download.dir"
+    value: "{{ ansible_env.HOME }}/downloads"
+  - name: "browser.download.useDownloadDir"
+    value: "true"
 firefox_extensions:
   - id: "uBlock0@raymondhill.net"
     mode: "normal_installed"
